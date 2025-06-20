@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="C:\Users\Michelle\Downloads\pixelbox_img.jpg" alt="Pixel Box" width="200">
+  <img src="![pixelbox_img](https://github.com/user-attachments/assets/10d6821f-5eba-4637-a866-d02a2c64329d)" alt="Pixel Box" width="200">
   <br>
   PIXEL BOX
   <br>
