@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pruebas PixelBox</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    fieldset { margin-bottom: 30px; padding: 15px; border: 1px solid #ccc; }
+    legend { font-weight: bold; }
+    input, button, textarea { margin-top: 5px; display: block; margin-bottom: 10px; width: 100%; max-width: 400px; }
+    pre { background: #f4f4f4; padding: 10px; border: 1px solid #ccc; max-width: 90%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+
+<h1>Pruebas Base Remota</h1>
+
+<!-- REGISTRAR USUARIO -->
+<fieldset>
+  <legend>Registrar nuevo usuario</legend>
+  <form id="formUsuario">
+    <input type="text" id="u_nombre" placeholder="Nombre de usuario" required>
+    <input type="email" id="u_correo" placeholder="Correo" required>
+    <input type="password" id="u_contrasena" placeholder="Contraseña" required>
+    <button type="submit">Registrar Usuario</button>
+  </form>
+  <pre id="resUsuario"></pre>
+</fieldset>
+
+<!-- REGISTRAR JUEGO -->
+<h2>Registrar Nuevo Juego</h2>
+    <form id="juegoForm">
+        <label>Nombre:</label><br>
+        <input type="text" id="nombre"><br>
+        <label>Plataforma:</label><br>
+        <input type="text" id="plataforma"><br>
+        <label>Género:</label><br>
+        <input type="text" id="genero"><br>
+        <label>Calificación:</label><br>
+        <input type="text" id="calificacion"><br>
+        <label>Estado:</label><br>
+        <input type="text" id="estado"><br>
+        <label>Opinión:</label><br>
+        <input type="text" id="opinion"><br>
+        <label>Imagen (URL o base64):</label><br>
+        <input type="text" id="imagen"><br><br>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <p id="mensaje"></p>
+
+<!-- COMENTS -->
+<h3>Agregar Comentario</h3>
+<form id="comentarioForm">
+  <textarea id="comentario" placeholder="Escribe tu comentario"></textarea><br>
+  <!--<input type="text" id="id_juego" placeholder="ID del juego"><br>-->
+  <!--<input type="text" id="id_usuario" placeholder="ID del usuario"><br>-->
+  <button type="submit">Enviar comentario</button>
+</form>
+
+<p id="resultado"></p>
+
+<!-- CONSULTAS
+<fieldset>
+  <legend>Ver juegos registrados</legend>
+  <button onclick="consultar('get_juegos.php', 'resGetJuegos')">Ver juegos</button>
+  <pre id="resGetJuegos"></pre>
+</fieldset>-->
+
+<script>
+  const BASE = "https://pixelbox.42web.io/";
+
+  // REGISTRAR USUARIO
+document.getElementById("formUsuario").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const datos = {
+    nom_usuario: document.getElementById("u_nombre").value,
+    correo: document.getElementById("u_correo").value,
+    contrasena: document.getElementById("u_contrasena").value
+  };
+
+  const res = await fetch(BASE + "new_usuario.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(datos)
+  });
+
+  const json = await res.json();  // 🔄 usamos json, no text
+  document.getElementById("resUsuario").innerText = JSON.stringify(json, null, 2);
+
+  if (json.id_usuario) {
+    localStorage.setItem("id_usuario", json.id_usuario);
+  }
+});
+
+// REGISTRAR JUEGO
+document.getElementById("juegoForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const uuid = crypto.randomUUID(); // genera el id_juego
+  const datos = {
+    id_juego: uuid,
+    nombre: document.getElementById("nombre").value,
+    plataforma: document.getElementById("plataforma").value,
+    genero: document.getElementById("genero").value,
+    calificacion: document.getElementById("calificacion").value,
+    estado: document.getElementById("estado").value,
+    opinion: document.getElementById("opinion").value,
+    imagen: document.getElementById("imagen").value
+  };
+
+  fetch(BASE + "new_juego.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(datos)
+  })
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("mensaje").textContent = data.mensaje || data.error;
+      if (data.mensaje) {
+        localStorage.setItem("id_juego", uuid);
+      }
+    })
+    .catch(error => {
+      document.getElementById("mensaje").textContent = "Error: " + error;
+    });
+});
+
+
+// COMENTS
+document.getElementById("comentarioForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const comentario = document.getElementById("comentario").value;
+  const id_usuario = localStorage.getItem("id_usuario");
+  const id_juego = localStorage.getItem("id_juego");
+
+  if (!id_usuario || !id_juego) {
+    document.getElementById("resultado").textContent = "Faltan datos del usuario o del juego.";
+    return;
+  }
+
+  fetch("https://pixelbox.42web.io/new_comentario.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      comentario: comentario,
+      id_usuario: id_usuario,
+      id_juego: id_juego
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("resultado").textContent = data.mensaje || data.error;
+  })
+  .catch(err => {
+    document.getElementById("resultado").textContent = "Error: " + err;
+  });
+});
+
+  // CONSULTAS (reutilizable)
+ // async function consultar(endpoint, destino) {
+    //try {
+    //  const res = await fetch(BASE + endpoint);
+    //  const txt = await res.text();
+    //  document.getElementById(destino).innerText = txt;
+    //} catch (e) {
+    //  document.getElementById(destino).innerText = "Error de conexión o de servidor.";
+    //}
+  //}
+</script>
+
+</body>
+</html>
