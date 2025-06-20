@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src=""C:\Users\Michelle\Downloads\pixelbox_img.jpg"" alt="Pixel Box" width="200"></a>
+  <img src=""C:\Users\Michelle\Downloads\pixelbox_img.jpg"" alt="Pixel Box" width="200">
   <br>
   PIXEL BOX
   <br>
