@@ -1,9 +1,6 @@
 <h1 align="center">
   <br>
   <img src="https://github.com/user-attachments/assets/10d6821f-5eba-4637-a866-d02a2c64329d" alt="Pixel Box" width="200">
-  <br>
-  PIXEL BOX
-  <br>
 </h1>
 
 <h3>Esta es nuestra aplicación móvil Pixel Box, creada para todos los gamers que quieren compartir su experiencias de juegos con amigos, familia y más personas de la comunidad
