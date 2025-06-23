@@ -38,14 +38,27 @@ Esto garantiza acceso a la información incluso sin conexión y permite que los 
   <li>Agregar sistema de puntuación promedio por juego.</li>
   <li>Implementar filtros por género, plataforma o popularidad.</li>
   <li>Permitir subir capturas de pantalla de los juegos.</li>
-  <li>Modo oscuro y personalización de perfil.</li>
 </ul>
 
 <h4>Estructura básica de la base de datos:</h4>
+ <img src="https://github.com/user-attachments/assets/6d68bb37-d5eb-4c63-9d37-462ec537c097" alt="Data Base" width="500">
+
+
 <ul>
-  <li><strong>Usuarios:</strong> id, nombre, correo, contraseña</li>
-  <li><strong>Juegos:</strong> id, título, descripción, categoría</li>
-  <li><strong>Reseñas:</strong> id, id_usuario, id_juego, calificación, comentario</li>
+  <li><strong>Usuarios:</strong></li>
+   <img src="https://github.com/user-attachments/assets/4df40092-8a40-4bc4-b2a0-60f1de4f17e2" alt="Data Base" width="500">
+    <img src="https://github.com/user-attachments/assets/38ce3986-002f-471c-bf81-55092372d0c1" alt="Data Base" width="500">
+
+
+  <li><strong>Juegos:</strong></li>
+   <img src="https://github.com/user-attachments/assets/caa6f708-353c-46a0-8dd8-682cb05c1a8b" alt="Data Base" width="500">
+   <img src="https://github.com/user-attachments/assets/e2518797-0f98-42f8-99e3-58d615910450" alt="Data Base" width="500">
+
+  <li><strong>Comentarios:</strong></li>
+   <img src="https://github.com/user-attachments/assets/5d5b7195-bad3-43e1-9b11-633a73261690" alt="Data Base" width="500">
+    <img src="https://github.com/user-attachments/assets/6edd91c1-a783-4554-82d6-ff3a788b082d" alt="Data Base" width="500">
+
+
 </ul>
 
 <h4>Desarrolladoras:</h4>
