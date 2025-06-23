@@ -3,12 +3,56 @@
   <img src="https://github.com/user-attachments/assets/10d6821f-5eba-4637-a866-d02a2c64329d" alt="Pixel Box" width="200">
 </h1>
 
-<h3>Esta es nuestra aplicación móvil Pixel Box, creada para todos los gamers que quieren compartir su experiencias de juegos con amigos, familia y más personas de la comunidad
-gamer. Ideal para compartir con los demás los increibles juegos que has terminado o que estas por comenzar, compartir tu experiencia y opiniones de los mismos, ayudandonos
-unos a otros a recomendar aquellos que no nos podemos perder la experiencia de jugarlos!</h3>
+<h3>Esta es nuestra aplicación móvil Pixel Box, creada para todos los gamers que quieren compartir sus experiencias de juegos con amigos, familia y más personas de la comunidad
+gamer. Ideal para compartir con los demás los increíbles juegos que has terminado o que estás por comenzar, compartir tu experiencia y opiniones de los mismos, ayudándonos
+unos a otros a recomendar aquellos que no nos podemos perder la experiencia de jugarlos.</h3>
 
-> [!NOTICE]  
-> The binds system has changed. Instead of doing the name of the key, there are scancodes assigned per key.
-        
+<h4>Recursos utilizados para el desarrollo de Pixel Box:</h4>
+<ul>
+  <li><strong>Android Studio:</strong> entorno de desarrollo principal para construir la aplicación.</li>
+  <li><strong>Kotlin:</strong> lenguaje de programación principal utilizado para la lógica de la app y el desarrollo de su interfaz.</li>
+  <li><strong>MySQL:</strong> base de datos remota utilizada para almacenar información de manera centralizada, alojada a través del servicio gratuito de <em>Infinity Free</em>.</li>
+  <li><strong>SQLite:</strong> base de datos local utilizada para manejar datos de forma rápida dentro del dispositivo.</li>
+  <li><strong>PHP:</strong> lenguaje utilizado para interactuar entre la app y la base de datos MySQL a través de servicios web.</li>
+</ul>
+<p>Todos estos recursos fueron integrados y configurados para dar funcionamiento completo a la aplicación Pixel Box.</p>
+
+<h4>Características principales:</h4>
+<ul>
+  <li>Agregar reseñas personalizadas de videojuegos.</li>
+  <li>Calificar juegos que ya jugaste o estás jugando.</li>
+  <li>Explorar opiniones de otros usuarios.</li>
+  <li>Buscar juegos por nombre.</li>
+  <li>Comentar en publicaciones de otros jugadores.</li>
+</ul>
+
+<h4>¿Cómo funciona Pixel Box?</h4>
+<p>La app permite a los usuarios registrar reseñas de videojuegos, almacenarlas localmente con SQLite y sincronizarlas con la base remota MySQL mediante servicios desarrollados en PHP. 
+Esto garantiza acceso a la información incluso sin conexión y permite que los datos se respalden en línea.</p>
+
+<h4>Gestión de usuarios:</h4>
+<p>Pixel Box permite a los usuarios registrarse y acceder con sus credenciales para personalizar su experiencia, guardar reseñas y comentarios, y explorar contenido según sus preferencias.</p>
+
+<h4>Posibles mejoras futuras:</h4>
+<ul>
+  <li>Agregar sistema de puntuación promedio por juego.</li>
+  <li>Implementar filtros por género, plataforma o popularidad.</li>
+  <li>Permitir subir capturas de pantalla de los juegos.</li>
+  <li>Modo oscuro y personalización de perfil.</li>
+</ul>
+
+<h4>Estructura básica de la base de datos:</h4>
+<ul>
+  <li><strong>Usuarios:</strong> id, nombre, correo, contraseña</li>
+  <li><strong>Juegos:</strong> id, título, descripción, categoría</li>
+  <li><strong>Reseñas:</strong> id, id_usuario, id_juego, calificación, comentario</li>
+</ul>
+
+<h4>Desarrolladoras:</h4>
+<ul>
+  <li><strong>Paola Figueroa</strong></li>
+  <li><strong>Michelle Ruiz</strong></li>
+</ul>
+
 > [!NOTE]  
-> The crosshair is designed for a 1920x1080 resolution; in other case, the experience may vary.
+> La aplicación fue probada en distintos dispositivos Android y emuladores. Se realizaron pruebas de inserción de datos, sincronización remota y validación de formularios.
