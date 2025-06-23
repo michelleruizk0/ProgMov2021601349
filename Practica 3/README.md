@@ -7,7 +7,7 @@
 gamer. Ideal para compartir con los demás los increibles juegos que has terminado o que estas por comenzar, compartir tu experiencia y opiniones de los mismos, ayudandonos
 unos a otros a recomendar aquellos que no nos podemos perder la experiencia de jugarlos!</h3>
 
-> [!IMPORTANT]  
+> [!NOTICE]  
 > The binds system has changed. Instead of doing the name of the key, there are scancodes assigned per key.
         
 > [!NOTE]  
